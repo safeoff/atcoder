@@ -17,11 +17,6 @@ bool isprime(int x){ int i; if(x<2)return 0; else if(x==2) return 1; if(x%2==0) 
 int digsum(int n) { int r=0; while(n>0) { r+=n%10; n/=10; } return r; }
 template<class T> bool chmax(T &a, const T &b) { if (a<b) { a = b; return 1; } return 0; }
 template<class T> bool chmin(T &a, const T &b) { if (a>b) { a = b; return 1; } return 0; }
-void rcmb(ll *x,ll s,ll r,function<void(ll *)>f){if(r==0){f(x);}else{if(s<0)return;rcmb(x,s-1,r,f);x[r-1]=s;rcmb(x,s-1,r-1,f);}}
-void cmb(ll n,ll k,function<void(ll *)>f){ll x[k];rcmb(x,n-1,k,f);}
-void prm(ll n,function<void(ll *)>f){ll x[n];for(ll i=0;i<n;i++)x[i]=i;do{f(x);}while(next_permutation(x,x+n));}
-void prm(ll n,ll k,function<void(ll *)>f){cmb(n,k,[&](ll *c){prm(k,[&](ll *p){ll x[k];for(ll i=0;i<k;i++){x[i]=c[p[i]];}f(x);});});}
-// prm(4, 2, [](ll *x){ cout << x[0] << "," << x[1] << "\n"; });
  
 int main(){
 }
