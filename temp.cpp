@@ -17,6 +17,8 @@ bool isprime(int x){ int i; if(x<2)return 0; else if(x==2) return 1; if(x%2==0) 
 int digsum(int n) { int r=0; while(n>0) { r+=n%10; n/=10; } return r; }
 template<class T> bool chmax(T &a, const T &b) { if (a<b) { a = b; return 1; } return 0; }
 template<class T> bool chmin(T &a, const T &b) { if (a>b) { a = b; return 1; } return 0; }
+struct nya{ nya(){ cin.tie(0); ios::sync_with_stdio(false); } }nyan;
+
 
 int main(){
 }
