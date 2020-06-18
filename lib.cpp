@@ -18,6 +18,50 @@ int digsum(int n) { int r=0; while(n>0) { r+=n%10; n/=10; } return r; }
 template<class T> bool chmax(T &a, const T &b) { if (a<b) { a = b; return 1; } return 0; }
 template<class T> bool chmin(T &a, const T &b) { if (a>b) { a = b; return 1; } return 0; }
 
+// 無効グラフのBFS
+void BFS() {
+    ll N, M;
+    N = 10; M = 20;
+    vector<vector<ll>> G(N);
+    REP(i, M) {
+        ll a, b;
+        a = 0; b = 3; // 無効グラフの入力
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+    vector<ll> D(N, -1);
+    queue<ll> Q;
+    D[0] = 0;
+    Q.push(0);
+    while(!Q.empty()) {
+        ll v = Q.front();
+        Q.pop();
+        for (ll nv : G[v]) {
+            if (D[nv] != -1) continue;
+            D[nv] = D[v]+1;
+            Q.push(nv);
+        }
+    }
+    // Dにたまる
+    REP(i, N) {
+        cout << i << ": " << D[i] << "\n";
+    }
+}
+
+// bit全探索
+void bit_search() {
+    ll N = 19;
+    for (ll bit=0; bit<(1<<N); bit++) {
+        vector<ll> S;
+        REP(i, N) if (bit&(1<<i)) S.push_back(i);
+        REP(i, S.size()) {
+            // 何か処理
+            cout << S[i] << " ";
+        }
+        cout << "\n";
+    }
+}
+
 // 順列 nPn
 void nPn() {
     vector<ll> V;
@@ -78,5 +122,5 @@ void nCr() {
 }
 
 int main(){
-    nPr();
+    BFS();
 }
