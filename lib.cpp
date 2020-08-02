@@ -18,6 +18,8 @@ int digsum(int n) { int r=0; while(n>0) { r+=n%10; n/=10; } return r; }
 template<class T> bool chmax(T &a, const T &b) { if (a<b) { a = b; return 1; } return 0; }
 template<class T> bool chmin(T &a, const T &b) { if (a>b) { a = b; return 1; } return 0; }
 
+// 素因数分解
+
 // 無効グラフのBFS
 void BFS() {
     ll N, M;
